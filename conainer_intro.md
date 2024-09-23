@@ -23,7 +23,7 @@ hypervisor is used the concept of virtualization. Hypervisor will  be on top of 
 * container doesn't have an  complete opeating system, they use the resourse form VM or physical server that they are running on.
 * resourse will share from  the host OS
 * container have a minimal os they have a base image
-* container is a package or its a bundle which is  a combination of apps + application libarary + system depenededies (python , java so on )
+* A container is a bundle of Application, Application libraries required to run your application and the minimum system dependencies.(python , java so on )
 
 ## Docker
 
