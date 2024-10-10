@@ -70,3 +70,9 @@ hypervisor is used the concept of virtualization. Hypervisor will  be on top of 
 It's important to note that while a container uses resources from the host operating system, it is still isolated from the host and other containers, so changes to the container do not affect the host or other containers.
 
 **Note:** There are multiple ways to reduce your VM image size as well, but I am just talking about the default for easy comparision and understanding.
+
+
+* docker build to buld a container
+* docker run to run a docekr container on our machine
+* docker push -> push the container to docker registry
+* docker pull -> anybidy in the world can download and use it.
