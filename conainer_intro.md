@@ -76,3 +76,22 @@ It's important to note that while a container uses resources from the host opera
 * docker run to run a docekr container on our machine
 * docker push -> push the container to docker registry
 * docker pull -> anybidy in the world can download and use it.
+
+
+
+## Most common use case of docker in between developers and QA egnineer
+
+* Before without container what they do is , dev will develop a code and tester will downloaad the app from repo and test, in this cse there will be a lot of dependencies will be there to run an application
+
+* but after the innovation of docker, the stester can  easily pull the image and run that no need to worry about is it a  mac or windows or linux,, or needed any system dependencies
+
+## what is the part of thing in  contaneraize an application.
+
+* we need to create an docker file for that
+* in the docekr file should have the base OS ex: FROM ubutnu, FROM python
+* and we need to mention the work directory using ex: WORKDIR </app>
+* we need to copy the source code - COPY <file name>
+* we need to install the requiremnt that needed to run the app - using the specific command that support the os
+* ENTRYPOINT - it can't be changeable ex: ENTRYPOINT ["python 3"]
+* CMD - it can be changeable  ex: CMD ["manage.py", "runserver", "0.0.0.0:8000"]  
+* from the above example if any people try to run  this application and, their machine alreaday have occuiped the port 8000 with other app, then it wont be executblae, so since it is in cmd  can change that ans use that, but in case of entry point we can't do that
