@@ -95,3 +95,15 @@ It's important to note that while a container uses resources from the host opera
 * ENTRYPOINT - it can't be changeable ex: ENTRYPOINT ["python 3"]
 * CMD - it can be changeable  ex: CMD ["manage.py", "runserver", "0.0.0.0:8000"]  
 * from the above example if any people try to run  this application and, their machine alreaday have occuiped the port 8000 with other app, then it wont be executblae, so since it is in cmd  can change that ans use that, but in case of entry point we can't do that
+
+
+## Multistage docker
+
+* To build an docker we should select an base image such as linux, mac, or someting, that make the image size ti high
+* So solve this problem multistage docker file has been introduced, with the use of distroless image we can able to easily run our container.
+* distroless imae - it is used to run time only. ex: python it is using only for the python app, so we can't run even the basic shell command
+* we will use the dependencied of the base image using the alias  : (ex ): FROM ubuntu AS build
+* build is in an alias  for the abobe example.
+
+
+# Docker BIND MOUNDS and volume
