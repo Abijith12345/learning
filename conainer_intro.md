@@ -107,3 +107,24 @@ It's important to note that while a container uses resources from the host opera
 
 
 # Docker BIND MOUNDS and volume
+
+* BIND MOUNDS  - allow to bind directory to container, by using this even the container goes down, we can use the information from this information. so we can easily bind this Directory with new container and we can continue use that.
+* Bind mounds are binded to the container by using the directory location so it restricted to single host where the container running
+* Volumes - By using the Docker CLI create an logical isolated volume in our host, we can use that like bindmounts, we can destroy,or we can use that with another container.
+* advantage of volume is we are not restricted to a single host we can create the volume from several places such as another ec2 instance, s3, NFS so and so
+* we can control all this by docker CLI, and also it was high performance, because it was not on the host we use.
+
+
+
+## Working with Volumes
+
+* docker Volume create <Volume name>  - Tpo create new volume 
+* docket volume ls - To see the list of Volumes
+* dokcer volume inspect < volume name >  - to see the deatils of specific volume
+* docker  volume rm <volume  name> - To remove the volume
+* docker ps - to see the list of running containers
+* docker inspect <docker name> - to see the docker details
+
+* we cant delete a volume directly , we need to stop the container and need to delete the container , then only it is possible
+
+* so concept of the volume is even a containers goes down the details will be on the volume so we can, use it on the another container , there wont be any information lost.
