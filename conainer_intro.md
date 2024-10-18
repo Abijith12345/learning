@@ -105,7 +105,6 @@ It's important to note that while a container uses resources from the host opera
 * we will use the dependencied of the base image using the alias  : (ex ): FROM ubuntu AS build
 * build is in an alias  for the abobe example.
 
-
 # Docker BIND MOUNDS and volume
 
 * BIND MOUNDS  - allow to bind directory to container, by using this even the container goes down, we can use the information from this information. so we can easily bind this Directory with new container and we can continue use that.
@@ -121,10 +120,14 @@ It's important to note that while a container uses resources from the host opera
 * docker Volume create <Volume name>  - Tpo create new volume 
 * docket volume ls - To see the list of Volumes
 * dokcer volume inspect < volume name >  - to see the deatils of specific volume
-* docker  volume rm <volume  name> - To remove the volume
+* doc
+ker  volume rm <volume  name> - To remove the volume
 * docker ps - to see the list of running containers
 * docker inspect <docker name> - to see the docker details
 
 * we cant delete a volume directly , we need to stop the container and need to delete the container , then only it is possible
 
 * so concept of the volume is even a containers goes down the details will be on the volume so we can, use it on the another container , there wont be any information lost.
+=======
+# Docker BIND MOUNDS and volume
+
