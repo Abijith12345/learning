@@ -128,3 +128,66 @@ It's important to note that while a container uses resources from the host opera
 * we cant delete a volume directly , we need to stop the container and need to delete the container , then only it is possible
 
 * so concept of the volume is even a containers goes down the details will be on the volume so we can, use it on the another container , there wont be any information lost.
+
+
+##Container Network
+
+* network allow container to connect with another container
+* may be some container must have some secret like payment , so i  want this to be in isolated. we can make this application run together with the use of Network
+* container 1 want to talk to caontainer 2
+* BY default crearting the container <b> Brige network</b> virtual ethernet (Docker 0) will be created , this help to container access the virutal machine.
+
+### Host networking 
+
+* since the docker installed in a host , whoever have access to the host they can acees the container also, so it is problamatic.
+
+### Overlay Networking.
+
+* Very popular in  kubernties , if we have multiple host then we can create an cluster.
+
+## Network Deepdive
+
+* We can create custom bridge network using DOCKET NETWORK command, and while running the container we can pass the argument --Networking
+* Docker network ls - to see all the network
+* Docker  network create <network name> - To create an Network
+* so if we try to ping the container from the different network then it wont able to ping.
+
+
+Example comments to run container
+
+    Docker run --name = <docker name> --network = <network name> -p 1010:1010 <image>
+
+* 3 types of network
+    1. Brige Network (default)
+    2. Host Network
+    3. Overlay network
+    4. macVlan  - allow the container appear as physical host rather than container
+
+
+
+
+# Deploying mernstack application in Docker
+
+## what is mern stack
+
+* m -mango db 
+* e - express
+* R - React
+* N - Node JS
+
+mango DB is use as DataBase
+Backend written by Express and NodeJs use to deploy the application
+React is used for UI   
+
+* this method is very popular because we can use all of them free
+* code all is belong to javascript family
+
+
+### steps to deploy the mern stack application
+* create one custom bridge network , and make it attach with the backend, frontend and DB to make  easier connection.
+* write doceker fie.
+* run and attach volume for DB using mangodb image
+* create and run the image for frontend  and backend
+
+
+instead of doing this manually steap by step
