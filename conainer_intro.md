@@ -189,5 +189,53 @@ React is used for UI
 * run and attach volume for DB using mangodb image
 * create and run the image for frontend  and backend
 
+### docker compose yaml
 
-instead of doing this manually steap by step
+instead of doing this manually step by step we can create an docker compose yaml file to explain the steps need to be done.
+
+* we need to mention every single run in a different different session.
+* we can mention depends on parameter to control which need to be create first same as in terraform,
+
+Example mern stack application docker compose file 
+
+Docker-compose.yaml 
+
+```
+services:
+  backend:
+    build: ./mern/backend
+    ports:
+      - "5050:5050" 
+    networks:
+      - mern_network
+    environment:
+      MONGO_URI: mongodb://mongo:27017/mydatabase  
+    depends_on:
+      - mongodb
+
+  frontend:
+    build: ./mern/frontend
+    ports:
+      - "5173:5173"  
+    networks:
+      - mern_network
+    environment:
+      REACT_APP_API_URL: http://backend:5050 
+
+  mongodb:
+    image: mongo:latest  
+    ports:
+      - "27017:27017"  
+    networks:
+      - mern_network
+    volumes:
+      - mongo-data:/data/db  
+
+networks:
+  mern_network:
+    driver: bridge 
+
+volumes:
+  mongo-data:
+    driver: local  # Persist MongoDB data locally
+```
