@@ -95,4 +95,32 @@ KubeProxy:
 
 # K8s Production system
 
+learn it from another repo of zero to hero -  https://github.com/iam-veeramalla/Kubernetes-Zero-to-Hero
+
+
+
+
+
+
+
+
+
+
+
+## Cluster
+
+cluster us used to
+
+![alt text](../../../../AppData/Local/Temp/kubernetes-cluster-architecture.svg)
+
+
+![alt text](image.png)
+
+
+
+
+
+
+
+
 
