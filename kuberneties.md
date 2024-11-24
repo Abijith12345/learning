@@ -218,3 +218,95 @@ kube ctl edit svc <nane> - to edit the configuration of service that already in 
 info: 
 
 by the minikube we can't create the public load balancer becasue. if we use like from aws or azure they have managed their cloud control manger to connect with their aws component to create an public  ip but in the case of minicbe they doesn't have those contribution. so we can use it for the testing env.
+
+
+
+# INGRESS
+
+* before 2015 there is no option like ingress, that time all used to expose the application using service.
+* The service giving very simple load balancing that was roundrobin. that was very simple.
+* from the people from instcne they have enterprice level load balancing  such as
+    1. Weighted round robin - An improvement on the round robin algorithm that considers the priority of each task before assigning it to a virtual machine. 
+    2. Least connections  - A dynamic load balancing algorithm that assigns incoming traffic to the server with the fewest open connections. 
+    3. location based 
+    4. path  based
+    5. ratio based
+* cloud provider will charge you the number of load balancer.
+* there is lot of ingress controler avilable on the market like nginix for the load balancing.
+* what the ingress of k8s say is you can choose  ingress controller that available on the market, they have the documentation page how to use. by using that you
+* in the ingress in k8s you can specify the routing type and the target service location
+* 
+![alt text](image-6.png)
+
+
+
+
+# RBAC (role based access control)
+
+* K8S providing the RBAC such as
+    1. Service account /user
+    2. Roles/ cluster role
+    3. Role binding / CRB 
+
+
+
+
+  ### users
+
+  * K8S not providing the user management. offlload the identitity provider to any other like IAM or TESTRAIL  (RBAC) 
+
+  ### Service account
+
+  * We can also define a access that to the applications that running using RBAC
+  * when ever we create pod in k8s it will create an default scalling
+  * we can create an service account using yaml 
+
+
+### Role
+
+  * role is a ymal file having all the permission. 
+
+### Role binding
+  * Role binding used to attach the role with user/ Service Account
+
+
+#  Custom resource 
+
+    1. Custom resource definition (CRD)
+    2. Custom resource (CR)
+    3. Custom controller 
+ 
+
+ * This is used to add new service into the k8s like Argocd 
+ * we can add new api resouce to the k8s 
+
+###  Custom resource definition (CRD)
+
+ * define a new type of api to k8s in ymal file. and validate the custom resource
+* CR will be created by developer, and that checked by the custom  controller.
+* controller will be created by DevOps , it can be write by go lang, python ( go lang is widely used)
+
+### watcher : if we doing any action like dleete create, it have all the watches it wil recieved
+
+
+
+# config  map amd secrets:
+
+### config  map
+
+ * used for saving secrets  non sensible information  in k8s ,after we can use that by pods or deploymnet .. so the application in the pod can use that
+ * we can save the values under here as env variabe or volume mount
+ * we can chnage the env varibale. so use the volume mount for that 
+ * IF WE CHANGE THE CONFIG MAP. THAT MAKE CHANGES ON CINFUG MAP WILL UPDT
+### secrets
+
+* it will save the secret sensible data in secretes, so it wont save in ETCD. it will encrypted
+
+
+# k8s monitoring
+
+promethiuous and grafana,
+
+we can get the logs by prometious and visualize that by grafana
+
+prometious can be installed by the helm chart 
